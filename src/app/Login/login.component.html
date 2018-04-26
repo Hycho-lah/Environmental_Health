@@ -1,0 +1,27 @@
+<mat-card class="login">
+  <mat-card-header class="login-card-header">
+    <span><img src="./assets/login-logo.png"></span>
+  </mat-card-header>
+  <br>
+  <mat-card-content>
+    <form class="login-input" [formGroup]="loginForm">
+      <mat-form-field class="user-name">
+        <input matInput placeholder="Please input user name" [(ngModel)] = "username" name="username" formControlName="username">
+      </mat-form-field>
+
+      <mat-form-field class="password">
+        <input matInput placeholder="please input password" [(ngModel)] = "password" name="password" formControlName="password">
+      </mat-form-field>
+
+    <div class="button-forget">
+      <button mat-button (click)="forgot()">Forgot Password</button>
+    </div>
+  <mat-progress-bar mode="buffer" ng-if="true"></mat-progress-bar>
+  <mat-card-actions>
+    <div class="button-login">
+      <button mat-raised-button color="primary" style="width:50%" (click)="login()" [disabled]="loginForm.invalid">Login</button>
+    </div>
+  </mat-card-actions>
+  </form>
+  </mat-card-content>
+</mat-card>

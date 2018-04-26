@@ -1,0 +1,35 @@
+.login{
+  max-width: 400px;
+  margin-left: 33%;
+  margin-top: 10%;
+}
+
+.login-card-header{
+  width: 100%;
+  background-color: grey;
+}
+
+.login-input{
+  width: 100%;
+}
+
+.user-name{
+  width: 100%;
+}
+
+.password{
+  width: 100%;
+}
+
+.button-forget{
+  margin-top: -4%;
+  float: right;
+}
+
+.button-login{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
