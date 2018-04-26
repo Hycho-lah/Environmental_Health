@@ -7,10 +7,12 @@ import { AppRoutingModule} from './Core/app.routing.module';
 import { HeadBarModule } from './head-bar/head-bar.module';
 import { LoginModule} from './Login/login.module';
 import { UserModule} from './user/user.module';
+import { LeftNavComponent } from './left-nav/left-nav.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LeftNavComponent
   ],
   imports: [
     BrowserModule,

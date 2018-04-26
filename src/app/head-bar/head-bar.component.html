@@ -3,6 +3,19 @@
     <span><img src="./assets/logo.png"></span>
     <span class="example-spacer"></span>
 
-    <button mat-button>Username</button>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon class="example-icon">verified_user</mat-icon>
+      User
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="profile()">
+        <mat-icon>account_circle</mat-icon>
+        <span>Account</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>eject</mat-icon>
+        <span>Log out</span>
+      </button>
+    </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>
