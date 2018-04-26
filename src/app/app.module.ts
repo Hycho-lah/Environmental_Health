@@ -1,30 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms';
-import { ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CustomMaterialModule} from './Core/material.module';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './Login/login.component';
-import { UserComponent } from './user/user.component';
 import { AppRoutingModule} from './Core/app.routing.module';
-import { HeadBarComponent } from './head-bar/head-bar.component';
+import { HeadBarModule } from './head-bar/head-bar.module';
+import { LoginModule} from './Login/login.module';
+import { UserModule} from './user/user.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    UserComponent,
-    HeadBarComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
-    CustomMaterialModule,
     AppRoutingModule,
+    HeadBarModule,
+    LoginModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
