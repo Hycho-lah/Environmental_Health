@@ -1,3 +1,40 @@
-<p>
-  left-nav works!
-</p>
+<mat-sidenav-container class="nav-container">
+  <mat-sidenav mode="side" opened class="side-nav">
+      <mat-nav-list class="nav-list">
+      <mat-list-item class="item">
+        <a routerLink="participant" routerLinkActive="true">
+          <button mat-button><mat-icon>face</mat-icon>Participant</button>
+        </a>
+      </mat-list-item>
+      <mat-list-item class="item">
+        <a routerLink="address" routerLinkActive="true">
+          <button mat-button><mat-icon>home</mat-icon>Address</button>
+        </a>
+      </mat-list-item>
+      <mat-list-item class="item">
+        <a routerLink="speck" routerLinkActive="true">
+          <button mat-button><mat-icon>data_usage</mat-icon>Speck Monitor</button>
+        </a>
+      </mat-list-item>
+      <mat-list-item class="item">
+        <a routerLink="pmimpact" routerLinkActive="true">
+          <button mat-button><mat-icon>track_changes</mat-icon>PM Impact</button>
+        </a>
+      </mat-list-item>
+      <mat-list-item class="item">
+        <a routerLink="health" routerLinkActive="true">
+          <button mat-button><mat-icon>favorite</mat-icon>Health</button>
+        </a>
+      </mat-list-item>
+      <mat-list-item class="item">
+        <a routerLink="data" routerLinkActive="true">
+          <button mat-button><mat-icon>book</mat-icon>Data Dictionary</button>
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

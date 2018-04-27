@@ -7,12 +7,13 @@ import { AppRoutingModule} from './Core/app.routing.module';
 import { HeadBarModule } from './head-bar/head-bar.module';
 import { LoginModule} from './Login/login.module';
 import { UserModule} from './user/user.module';
-import { LeftNavComponent } from './left-nav/left-nav.component';
+import { LeftNavModule} from './left-nav/left-nav.module';
+import { ParticipantComponent } from './participant/participant.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LeftNavComponent
+    ParticipantComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +21,8 @@ import { LeftNavComponent } from './left-nav/left-nav.component';
     AppRoutingModule,
     HeadBarModule,
     LoginModule,
-    UserModule
+    UserModule,
+    LeftNavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
