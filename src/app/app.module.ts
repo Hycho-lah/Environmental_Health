@@ -4,25 +4,21 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule} from './Core/app.routing.module';
-import { HeadBarModule } from './head-bar/head-bar.module';
 import { LoginModule} from './Login/login.module';
-import { UserModule} from './user/user.module';
-import { LeftNavModule} from './left-nav/left-nav.module';
-import { ParticipantComponent } from './participant/participant.component';
+import { AddParticipantComponent } from './add-participant/add-participant.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ParticipantComponent,
+    AddParticipantComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HeadBarModule,
-    LoginModule,
-    UserModule,
-    LeftNavModule
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

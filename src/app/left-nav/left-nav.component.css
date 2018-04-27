@@ -1,34 +1,42 @@
 .nav-container {
-  position: absolute;
   width: 100%;
-  height: 100%;
-  z-index: 1;
-  padding-top: 200px;
+  height: 650px;
   border: solid #3f51b5;
   border-width:0px 1px 1px 1px;
+  flex: 1;
+  overflow: auto;
 }
 
 .side-nav{
   width: 12%;
   background-color: white;
   padding:0px;
+  position: absolute;
+  top: 0px;
 }
 
 .nav-list{
   padding: 0px;
 }
 
+.nav-content{
+  top:0px;
+}
+
 .item{
   width: 100%;
   padding: 0px;
+  float: left;
 }
 
 a{
   width: 100%;
   padding: 0px;
+  float: left;
 }
 
 button{
   width: 100%;
   padding: 0px;
+  float: left;
 }

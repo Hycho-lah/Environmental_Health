@@ -6,7 +6,20 @@ import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
-import {RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
+import {HeadBarModule} from '../head-bar/head-bar.module';
+
+
+export const routes: Routes = [
+  {
+    path:'',
+    component:LeftNavComponent,
+     children:[
+       {path:'participant',loadChildren:'../participant/participant.module#ParticipantModule'},
+       {path:'',redirectTo:'participant',pathMatch: 'full'}
+     ]
+  }]
+
 @NgModule({
   imports:[
     CommonModule,
@@ -15,10 +28,15 @@ import {RouterModule} from '@angular/router';
     MatButtonModule,
     MatExpansionModule,
     MatIconModule,
-    RouterModule
+    HeadBarModule,
+    RouterModule.forChild(routes),
   ],
   exports:[
-    CommonModule,LeftNavComponent,MatSidenavModule,MatListModule,MatButtonModule, MatExpansionModule,MatIconModule,RouterModule
+    CommonModule,LeftNavComponent,
+    MatSidenavModule,MatListModule,
+    MatButtonModule, MatExpansionModule,
+    MatIconModule,RouterModule,
+    HeadBarModule
   ],
   declarations:[
     LeftNavComponent
