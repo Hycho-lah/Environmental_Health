@@ -15,7 +15,7 @@ export class AddressComponent implements OnInit {
   cites = [
     {value:"New York"},
     {value:"Pittsburgh"}
-  ]
+  ];
   public isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
