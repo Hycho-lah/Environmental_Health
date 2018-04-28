@@ -36,42 +36,42 @@
 
           <ng-container matColumnDef="studyId">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Study ID</mat-header-cell>
-            <mat-cell *matCellDef="let sf36"> {{sf36.studyId}} </mat-cell>
+            <mat-cell *matCellDef="let healthIntake"> {{healthIntake.studyId}} </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="respDate">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Resp Date</mat-header-cell>
-            <mat-cell *matCellDef="let sf36"> {{sf36.respDate}} </mat-cell>
+            <mat-cell *matCellDef="let healthIntake"> {{healthIntake.respDate}} </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="eyeIrritate">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Eye Irritate</mat-header-cell>
-            <mat-cell *matCellDef="let sf36"> {{sf36.eyeIrritate}} </mat-cell>
+            <mat-cell *matCellDef="let healthIntake"> {{healthIntake.eyeIrritate}} </mat-cell>
           </ng-container>
 
-          <ng-container matColumnDef="GH01">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>GH01</mat-header-cell>
-            <mat-cell *matCellDef="let sf36"> {{sf36.GH01}} </mat-cell>
+          <ng-container matColumnDef="visionProb">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Vision Prob</mat-header-cell>
+            <mat-cell *matCellDef="let healthIntake"> {{healthIntake.visionProb}} </mat-cell>
           </ng-container>
 
-          <ng-container matColumnDef="HT">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>HT</mat-header-cell>
-            <mat-cell *matCellDef="let sf36"> {{sf36.HT}} </mat-cell>
+          <ng-container matColumnDef="ringEar">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Ring Ear</mat-header-cell>
+            <mat-cell *matCellDef="let healthIntake"> {{healthIntake.ringEar}} </mat-cell>
           </ng-container>
 
-          <ng-container matColumnDef="DF01">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>DF01</mat-header-cell>
-            <mat-cell *matCellDef="let sf36"> {{sf36.DF01}} </mat-cell>
+          <ng-container matColumnDef="decSmell">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Dec Smell</mat-header-cell>
+            <mat-cell *matCellDef="let healthIntake"> {{healthIntake.decSmell}} </mat-cell>
           </ng-container>
 
-          <ng-container matColumnDef="DF02">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>DF02</mat-header-cell>
-            <mat-cell *matCellDef="let sf36"> {{sf36.DF02}} </mat-cell>
+          <ng-container matColumnDef="runNose">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Run Nose</mat-header-cell>
+            <mat-cell *matCellDef="let healthIntake"> {{healthIntake.runNose}} </mat-cell>
           </ng-container>
 
-          <ng-container matColumnDef="DF03">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>DF03</mat-header-cell>
-            <mat-cell *matCellDef="let sf36"> {{sf36.DF03}} </mat-cell>
+          <ng-container matColumnDef="sinusProb">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Sinus Prob</mat-header-cell>
+            <mat-cell *matCellDef="let healthIntake"> {{healthIntake.sinusProb}} </mat-cell>
           </ng-container>
 
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
