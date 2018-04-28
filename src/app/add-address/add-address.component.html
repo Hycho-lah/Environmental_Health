@@ -1,3 +1,74 @@
-<p>
-  add-address works!
-</p>
+<div class="container">
+  <mat-card>
+    <mat-card-title>
+      <span>Add a new Participant</span>
+    </mat-card-title>
+    <mat-card-content>
+      <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Fill out ID Information</ng-template>
+            <mat-form-field class="col-sm-4">
+              <input matInput placeholder="Address ID" formControlName="addressIdControl" required [(ngModel)]="addressID">
+            </mat-form-field>
+
+            <mat-form-field class="col-sm-4">
+              <input matInput placeholder="House ID" formControlName="houseIdControl" required [(ngModel)]="houseID">
+            </mat-form-field>
+
+            <div>
+              <button mat-raised-button matStepperNext color="primary" [disabled]="firstFormGroup.invalid">Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Fill out your Personal Info</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="State" formControlName="stateControl" required [(ngModel)]="state">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="County" formControlName="countyControl" required [(ngModel)]="county">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="City" formControlName="cityControl" required [(ngModel)]="city">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Zip Code" formControlName="zipCodeControl" required [(ngModel)]="zipCode">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Latitude" formControlName="latitudeControl" required [(ngModel)]="latitude">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Longitude" formControlName="longitudeControl" required [(ngModel)]="longitude">
+            </mat-form-field>
+            <div>
+              <button mat-raised-button color="warn" matStepperPrevious >Back</button>
+              <button mat-raised-button color="primary" matStepperNext [disabled]="secondFormGroup.invalid">Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <mat-chip-list>
+            <mat-chip color="primary" selected="true">{{addressID}}</mat-chip>
+            <mat-chip color="primary" selected="true">{{houseID}}</mat-chip>
+            <mat-chip color="primary" selected="true">{{state}}</mat-chip>
+            <mat-chip color="accent" selected="true">{{county}}</mat-chip>
+            <mat-chip color="accent" selected="true">{{city}}</mat-chip>
+            <mat-chip color="accent" selected="true">{{zipCode}}</mat-chip>
+            <mat-chip color="accent" selected="true">{{latitude}}</mat-chip>
+            <mat-chip color="accent" selected="true">{{longitude}}</mat-chip>
+          </mat-chip-list>
+          <br>
+          <div>
+            <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+            <button mat-raised-button color="warn" (click)="stepper.reset()">Reset</button>
+            <button mat-raised-button color="primary" (click)="submit()">Submit Participant</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </mat-card-content>
+  </mat-card>
+</div>
