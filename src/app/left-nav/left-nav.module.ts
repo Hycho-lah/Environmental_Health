@@ -16,7 +16,8 @@ export const routes: Routes = [
      children:[
        {path:'participant',loadChildren:'../participant/participant.module#ParticipantModule'},
        {path:'',redirectTo:'participant',pathMatch: 'full'},
-       {path:'addParticipant',loadChildren:'../add-participant/add-participant.module#AddParticipantModule'}
+       {path:'addParticipant',loadChildren:'../add-participant/add-participant.module#AddParticipantModule'},
+       {path:'address',loadChildren:'../address/address.module#AddressModule'}
      ]
   }]
 

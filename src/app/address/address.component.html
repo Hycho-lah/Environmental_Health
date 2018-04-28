@@ -1,3 +1,91 @@
-<p>
-  address works!
-</p>
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <div class="first-step">
+        <mat-form-field class="select-city">
+          <mat-select placeholder="Select City">
+            <mat-option *ngFor="let city of cites" [value]="city.value">
+              {{ city.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="search()" style="margin-left:20px">Search</button>
+      </div>
+      <div class="filter-header">
+        <mat-form-field style="width: 90%">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-table #table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="select">
+            <mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()">
+              </mat-checkbox>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)">
+              </mat-checkbox>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="addressID">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Address ID</mat-header-cell>
+            <mat-cell *matCellDef="let address"> {{address.addressID}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="houseID">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>House ID</mat-header-cell>
+            <mat-cell *matCellDef="let address"> {{address.houseID}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="state">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>State</mat-header-cell>
+            <mat-cell *matCellDef="let address"> {{address.state}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="county">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>County</mat-header-cell>
+            <mat-cell *matCellDef="let address"> {{address.county}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="city">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>City</mat-header-cell>
+            <mat-cell *matCellDef="let address"> {{address.city}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="zipCode">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Zip Code</mat-header-cell>
+            <mat-cell *matCellDef="let address"> {{address.zipCode}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="latitude">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Latitude</mat-header-cell>
+            <mat-cell *matCellDef="let address"> {{address.latitude}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="longitude">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Longitude</mat-header-cell>
+            <mat-cell *matCellDef="let address"> {{address.longitude}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"(click)="selection.toggle(row)"></mat-row>
+        </mat-table>
+        <mat-paginator #paginator
+                       [pageSize]="10"
+                       [pageSizeOptions]="[5, 10, 20]"
+                       [showFirstLastButtons]="true">
+        </mat-paginator>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="delete-button">
+      <button mat-raised-button color="warn" (click)="delete()">Delete Participants</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
