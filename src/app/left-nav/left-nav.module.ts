@@ -9,14 +9,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {RouterModule, Routes} from '@angular/router';
 import {HeadBarModule} from '../head-bar/head-bar.module';
 
-
 export const routes: Routes = [
   {
     path:'',
     component:LeftNavComponent,
      children:[
        {path:'participant',loadChildren:'../participant/participant.module#ParticipantModule'},
-       {path:'',redirectTo:'participant',pathMatch: 'full'}
+       {path:'',redirectTo:'participant',pathMatch: 'full'},
+       {path:'addParticipant',loadChildren:'../add-participant/add-participant.module#AddParticipantModule'}
      ]
   }]
 

@@ -40,3 +40,8 @@ button{
   padding: 0px;
   float: left;
 }
+
+.col-sm-4{
+  width: 500px;
+  margin-right: 25px;
+}

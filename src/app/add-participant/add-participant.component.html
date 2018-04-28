@@ -1,3 +1,76 @@
-<p>
-  add-participant works!
-</p>
+<div class="container">
+  <mat-card>
+    <mat-card-title>
+      <span>Add a new Participant</span>
+    </mat-card-title>
+    <mat-card-content>
+      <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Fill out ID Information</ng-template>
+              <mat-form-field class="col-sm-4">
+                <input matInput placeholder="Study ID" formControlName="studyIDControl" required [(ngModel)]="studyId">
+              </mat-form-field>
+
+              <mat-form-field class="col-sm-4">
+                <input matInput placeholder="Old Participant ID" formControlName="oldPIDControl" required [(ngModel)]="oldParticipantId">
+              </mat-form-field>
+
+              <mat-form-field class="col-sm-4">
+                <input matInput placeholder="Address ID" formControlName="addressIDControl" required [(ngModel)]="addressId">
+              </mat-form-field>
+            <div>
+              <button mat-raised-button matStepperNext color="primary" [disabled]="firstFormGroup.invalid">Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Fill out your Personal Info</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Last Name" formControlName="lastNameControl" required [(ngModel)]="lastName">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="First Name" formControlName="firstNameControl" required [(ngModel)]="firstName">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="birthControl" required [(ngModel)]="birthdate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select placeholder="Sex" formControlName="sexControl" required [(ngModel)]="sex">
+                <mat-option *ngFor="let sex of sexes" [value]="sex.value">
+                  {{ sex.value }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-raised-button color="warn" matStepperPrevious >Back</button>
+              <button mat-raised-button color="primary" matStepperNext [disabled]="secondFormGroup.invalid">Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <mat-chip-list>
+            <mat-chip color="primary" selected="true">{{studyId}}</mat-chip>
+            <mat-chip color="primary" selected="true">{{oldParticipantId}}</mat-chip>
+            <mat-chip color="primary" selected="true">{{addressId}}</mat-chip>
+            <mat-chip color="accent" selected="true">{{firstName}}</mat-chip>
+            <mat-chip color="accent" selected="true">{{lastName}}</mat-chip>
+            <mat-chip color="accent" selected="true">{{birthdate}}</mat-chip>
+            <mat-chip color="accent" selected="true">{{sex}}</mat-chip>
+          </mat-chip-list>
+          <br>
+          <div>
+            <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+            <button mat-raised-button color="warn" (click)="stepper.reset()">Reset</button>
+            <button mat-raised-button color="primary" (click)="submit()">Submit Participant</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </mat-card-content>
+  </mat-card>
+</div>
